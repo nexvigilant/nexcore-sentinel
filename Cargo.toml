@@ -1,0 +1,36 @@
+
+[package]
+name = "nexcore-sentinel"
+description = "Pure-Rust SSH brute-force protection daemon — a fail2ban replacement"
+version = "1.0.0"
+edition = "2024"
+authors = ["NexVigilant Team <team@nexvigilant.com>"]
+license = "LicenseRef-Proprietary"
+rust-version = "1.85"
+
+[[bin]]
+name = "nexcore-sentinel"
+path = "src/main.rs"
+
+[dependencies]
+tokio = { version = "1.38.0", features = ["full"] }
+nexcore-lex-primitiva = { version = "0.1.0", path = "../nexcore-lex-primitiva", registry = "nexcore" }
+serde = { version = "1.0.204", features = ["derive"] }
+serde_json = { version = "1.0.120" }
+nexcore-chrono = { workspace = true }
+regex = { version = "1.10.5" }
+tracing = { version = "0.1.40" }
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+clap = { version = "4.5.11", features = ["derive", "cargo", "env"] }
+nexcore-error = { workspace = true }
+toml = { version = "0.8.15" }
+notify = "8.2.0"
+ipnetwork = "0.20"
+
+[dev-dependencies]
+tempfile = { version = "3.10.1" }
+proptest = { version = "1.6.0" }
+
+
+[lints]
+workspace = true
